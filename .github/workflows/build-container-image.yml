@@ -21,8 +21,8 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         registry: hub.docker.com/tzk223/terraria
         tags: 1.4.0.5,latest
-        path: /terraria/
-        dockerfile: /terraria/Dockerfile
+        path: terraria/
+        dockerfile: terraria/Dockerfile
         target: terraria
         always_pull: true
         build_args: VERSION=1405
