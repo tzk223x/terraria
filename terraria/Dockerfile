@@ -4,7 +4,7 @@ ARG VERSION=0000
 
 RUN apk add curl unzip \
     && mkdir /temp/ \
-    && curl -sSL 'https://www.terraria.org/system/dedicated_servers/archives/000/000/039/original/terraria-server-1405' --create-dirs -o /temp/terraria-server-${VERSION}.zip \
+    && curl -sSL 'https://www.terraria.org/system/dedicated_servers/archives/000/000/039/original/terraria-server-1405.zip' --create-dirs -o /temp/terraria-server-${VERSION}.zip \
     && unzip -oqq /temp/terraria-server-${VERSION}.zip -d /temp/terraria-server-${VERSION} \
     && mkdir -p /out/ \
     && cp -r /temp/terraria-server-${VERSION}/${VERSION}/Linux/ /out/
