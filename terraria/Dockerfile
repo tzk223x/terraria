@@ -11,7 +11,7 @@ RUN apk add curl unzip \
 
 COPY /config/ /out/Linux/config/
 
-FROM ubuntu:18.04
+FROM ubuntu:18.04 as terraria
 
 COPY --from=downloader /out/ /terraria/
 
