@@ -1,0 +1,29 @@
+name: Build Terraria Container Image
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v1.1.0
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        registry: hub.docker.com/tzk223/terraria
+        tags: 1.4.0.5,latest
+        path: /terraria/
+        dockerfile: /terraria/Dockerfile
+        target: terraria
+        always_pull: true
+        build_args: VERSION=1.4.0.5
+        push: true
